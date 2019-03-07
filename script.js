@@ -8,6 +8,7 @@ function rightClick() {
       nextImg = $("img.first");     //Se vero, nextimg è la prima (.first)
     }
   nextImg.addClass("active");       //aggiungo la classe active
+  updateDots()                      //Richiamo funzione per aggiornare il puntino
 }
 
 function leftClick() {
@@ -18,15 +19,26 @@ function leftClick() {
       prevImg = $("img.last");     //Se vero, nextimg è l'ultima' (.last)
     }
   prevImg.addClass("active");       //aggiungo la classe active
+  updateDots()                      //Richiamo funzione per aggiornare il puntino
 }
 
+function updateDots() {
+  var dotIndex = $("img.active").index();    //Prendo indice dell'img con .active
+  var oldDot = $(".circle > .fas");          //Seleziono puntino pieno vecchio
+  oldDot.removeClass("fas").addClass("far"); // lo levo e metto quello vuoto sostituendo la classe
 
+  var dot = $(".circle > .far");             //Selezione tutti i puntini vuoti
+  var nextDot = dot.eq(dotIndex);            //seleziono il puntino con indice ricavato a riga 26 da img corrispondente
+  nextDot.removeClass("far").addClass("fas");// riempio il puntino
+
+}
 
 function init() {
   var left = $(".left > i");
   var right = $(".right > i");
   left.click(leftClick);
   right.click(rightClick);
+
   // leftClick();
   // rightClick();
 }
