@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none; /* annullo selezione */
 }
 
 #container{
@@ -35,6 +36,10 @@
   align-items: center;
 }
 
+.right > i, .left > i{
+  cursor: pointer;
+}
+
 .slideshow{
   height: calc(100% - 90px);
   display: flex;
@@ -63,6 +68,7 @@
   max-height: 70%;
   max-width: 90%;
   box-shadow: 10px 15px 10px lightgrey;
+  border-radius: 20px;
   display: none;
 }
 
