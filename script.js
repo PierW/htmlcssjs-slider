@@ -33,14 +33,30 @@ function updateDots() {
 
 }
 
+function clickDots() {
+  var dots = $(".circle > i");        // PRENDO TUTTI I PUNTI
+  var allImg = $(".slideshow > img"); // PRENDO TUTTE LE IMMAGINI
+  dots.click(function() {             // AL CLICK SUI PUNTINI
+
+    var me = $(this)                  // PRENDO L'INDICE DEL PUNTINO CLICCATO
+             .index();
+    var newImg = allImg.eq(me);       //PRENDO IMMAGINE NUOVA
+    var oldImg = $(".slideshow > .active");//PRENDO IMMAGINE VECCHIA
+    oldImg.removeClass("active");     //ELIMINO CLASSE ACTIVE ALLA VECCHIA
+    newImg.addClass("active");        //INSERISCO CLASSE ACTIVE ALLA NUOVA
+    updateDots()                      //AGGIORNO PUNTINI
+  });
+}
+
 function init() {
-  var left = $(".left > i");
+  var left = $(".left > i"); //Prendo TUTTI i puntini
   var right = $(".right > i");
   left.click(leftClick);
   right.click(rightClick);
+  clickDots();
 
   // leftClick();
   // rightClick();
 }
   // Dato che non abbiamo usato le funzioni anonime questa volte
-  // le funzioni non le lanceremo così ma come a riga 15 e 16.
+  // le funzioni non le lanceremo così ma come a riga 39 e 40.
