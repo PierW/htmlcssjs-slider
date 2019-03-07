@@ -59,4 +59,4 @@ function init() {
   // rightClick();
 }
   // Dato che non abbiamo usato le funzioni anonime questa volte
-  // le funzioni non le lanceremo così ma come a riga 39 e 40.
+  // le funzioni non le lanceremo così ma come a riga 54 e 55.
